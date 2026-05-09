@@ -24,7 +24,7 @@ const notFor = [
 
 export function Who() {
   return (
-    <section id="who" className="relative scroll-mt-nav py-20 md:py-28">
+    <section id="who" className="relative scroll-mt-nav py-14 md:py-20">
       <div className="container-luxe">
         <SectionHeading
           index="✦  06"

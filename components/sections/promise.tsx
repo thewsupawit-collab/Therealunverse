@@ -38,7 +38,7 @@ const pillars = [
 
 export function PromiseSection() {
   return (
-    <section id="promise" className="relative scroll-mt-nav py-20 md:py-28">
+    <section id="promise" className="relative scroll-mt-nav py-14 md:py-20">
       <div className="container-luxe">
         <div className="grid grid-cols-12 gap-y-14 gap-x-6">
           <div className="col-span-12 lg:col-span-5">

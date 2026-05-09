@@ -46,7 +46,7 @@ export function Shift() {
   return (
     <section
       id="shift"
-      className="relative scroll-mt-nav py-20 md:py-28 overflow-hidden"
+      className="relative scroll-mt-nav py-14 md:py-20 overflow-hidden"
     >
       <div className="container-luxe relative">
         <div className="grid grid-cols-12 gap-y-14 gap-x-6 items-start">

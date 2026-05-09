@@ -34,10 +34,11 @@ const programs: Program[] = [
     pitch:
       "หนังสือเล่มเดียวที่รวมหลักทุกอย่างที่ผมสอน — สำหรับคนที่อยากเริ่มเดินทางเอง ก่อนพร้อมจ้างโค้ช",
     highlights: [
-      "หลักการเทรน + โภชนาการ พื้นฐานครบ",
-      "Mindset framework ที่ผมใช้กับลูกค้า",
-      "เทมเพลตเขียนโปรแกรมเอง 12 สัปดาห์",
-      "อัปเดตตลอดชีวิตที่ผมยังเขียน",
+      "สร้างรากฐานระบบชีวิต — ไม่ใช่แค่แรงฮึดชั่วคราว",
+      "Mindset + วินัย: ทำได้แม้วันที่ไม่อยากทำ",
+      "Energy Balance, TDEE, สัดส่วนโปรตีน-คาร์บ-ไขมัน ครบ",
+      "โปรแกรม Push/Pull/Legs + Progressive Overload พร้อมใช้เลย",
+      "Zone 2 Cardio + หลักพักฟื้น — เผาไขมันและฟื้นตัวถูกวิธี",
     ],
     cta: "ซื้อ E-book",
     ctaHref: "#apply",
@@ -89,7 +90,7 @@ export function Programs() {
   return (
     <section
       id="programs"
-      className="relative scroll-mt-nav py-20 md:py-28 overflow-hidden"
+      className="relative scroll-mt-nav py-14 md:py-20 overflow-hidden"
     >
       <div
         aria-hidden

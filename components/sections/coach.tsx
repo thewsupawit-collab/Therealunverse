@@ -77,7 +77,7 @@ export function CoachStory() {
   return (
     <section
       id="coach"
-      className="relative scroll-mt-nav py-20 md:py-28"
+      className="relative scroll-mt-nav py-14 md:py-20"
     >
       {/* subtle gold backdrop — clipped here so it doesn't bleed, but section stays overflow-visible
           so Thai tone marks (ไม้โท ฯลฯ) on display headings don't get clipped */}
@@ -105,7 +105,7 @@ export function CoachStory() {
             <h2 className="text-display-lg font-thai font-light text-balance !leading-[1.35] pt-3 pb-1">
               ถ้าผมทำได้ —
               <br />
-              <span className="italic gold-text">คุณก็ทำได้</span>
+              <span className="gold-text">คุณก็ทำได้</span>
               <br />
               เราคนเหมือนกัน
             </h2>

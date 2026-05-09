@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { PromiseSection } from "@/components/sections/promise";
-import { Shift } from "@/components/sections/shift";
+
 import { Method } from "@/components/sections/method";
 import { CoachStory } from "@/components/sections/coach";
 import { Who } from "@/components/sections/who";
@@ -42,7 +42,6 @@ export default function Home() {
         <PromiseSection />
         <CoachStory />
         <Programs />
-        <Shift />
         <Who />
         <Method />
       </main>

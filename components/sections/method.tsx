@@ -66,7 +66,7 @@ const phases = [
 
 export function Method() {
   return (
-    <section id="method" className="relative scroll-mt-nav py-20 md:py-28">
+    <section id="method" className="relative scroll-mt-nav py-14 md:py-20">
       <div className="container-luxe">
         <SectionHeading
           index="✦  07"
@@ -137,13 +137,6 @@ export function Method() {
           ))}
         </div>
 
-        <div className="mt-20 max-w-2xl">
-          <p className="font-display italic text-2xl md:text-3xl text-foreground/90 leading-snug text-balance">
-            "ครูที่ดีที่สุด คือครูที่
-            <span className="gold-text"> นักเรียนของเขาไม่ต้องการอีก</span>"
-          </p>
-          <p className="mt-4 text-sm text-foreground/55">— Thew</p>
-        </div>
       </div>
     </section>
   );
