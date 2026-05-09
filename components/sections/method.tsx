@@ -69,8 +69,8 @@ export function Method() {
     <section id="method" className="relative scroll-mt-nav py-20 md:py-28">
       <div className="container-luxe">
         <SectionHeading
-          index="✦  04"
-          eyebrow="The Method · 4 phases of return"
+          index="✦  07"
+          eyebrow="The Method · 7 phases of return"
           title={
             <>
               4 ช่วง —

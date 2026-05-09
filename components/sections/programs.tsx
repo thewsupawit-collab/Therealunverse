@@ -98,7 +98,7 @@ export function Programs() {
 
       <div className="container-luxe relative">
         <SectionHeading
-          index="✦  07"
+          index="✦  04"
           eyebrow="Programs · 3 ทาง สู่จุดเดียวกัน"
           title={
             <>
