@@ -41,10 +41,10 @@ export default function Home() {
         <Hero />
         <PromiseSection />
         <CoachStory />
-        <Method />
+        <Programs />
         <Shift />
         <Who />
-        <Programs />
+        <Method />
       </main>
       <Footer />
     </>
