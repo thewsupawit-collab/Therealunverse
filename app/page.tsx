@@ -7,8 +7,6 @@ import { Method } from "@/components/sections/method";
 import { CoachStory } from "@/components/sections/coach";
 import { Who } from "@/components/sections/who";
 import { Programs } from "@/components/sections/programs";
-import { Faq } from "@/components/sections/faq";
-import { Apply } from "@/components/sections/apply";
 import { siteConfig } from "@/lib/site";
 
 const jsonLd = {
@@ -47,8 +45,6 @@ export default function Home() {
         <Shift />
         <Who />
         <Programs />
-        <Faq />
-        <Apply />
       </main>
       <Footer />
     </>
