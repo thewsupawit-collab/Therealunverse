@@ -43,7 +43,7 @@ export function PromiseSection() {
         <div className="grid grid-cols-12 gap-y-14 gap-x-6">
           <div className="col-span-12 lg:col-span-5">
             <SectionHeading
-              index="✦  02"
+              index="✦  01"
               eyebrow="The Path · เส้นทาง"
               title={
                 <>

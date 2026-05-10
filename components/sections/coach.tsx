@@ -94,7 +94,7 @@ export function CoachStory() {
           <div className="col-span-12 lg:col-span-5 flex flex-col gap-7">
             <div className="flex items-center gap-4">
               <span className="font-display italic text-gold text-lg leading-none">
-                ✦  03
+                ✦  02
               </span>
               <span className="h-px w-8 bg-gold/40" aria-hidden />
               <span className="text-[11px] uppercase tracking-widest text-gold/75">

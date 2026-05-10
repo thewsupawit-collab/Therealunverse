@@ -21,10 +21,8 @@ export const siteConfig = {
   },
   nav: [
     { label: "Path", labelTh: "เส้นทาง", href: "#promise" },
-    { label: "Method", labelTh: "วิธีการ", href: "#method" },
     { label: "Programs", labelTh: "โปรแกรม", href: "#programs" },
     { label: "My Story", labelTh: "เรื่องของผม", href: "#coach" },
-    { label: "FAQ", labelTh: "คำถาม", href: "#faq" },
   ],
 } as const;
 

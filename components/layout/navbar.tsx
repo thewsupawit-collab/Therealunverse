@@ -65,7 +65,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <Button asChild size="sm" variant="gold" className="hidden md:inline-flex">
-              <Link href="#apply">เริ่มเส้นทาง</Link>
+              <Link href="#programs">เริ่มเส้นทาง</Link>
             </Button>
             <button
               type="button"
@@ -113,7 +113,7 @@ export function Navbar() {
                 </motion.div>
               ))}
               <Button asChild size="lg" variant="gold" className="mt-10">
-                <Link href="#apply" onClick={() => setOpen(false)}>
+                <Link href="#programs" onClick={() => setOpen(false)}>
                   เริ่มเส้นทาง
                 </Link>
               </Button>

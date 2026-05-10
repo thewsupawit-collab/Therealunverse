@@ -1,11 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Check, BookOpen, Sparkles, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/shared/section-heading";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -22,41 +29,45 @@ interface Program {
   featured?: boolean;
   ebookIncluded?: boolean;
   ribbon?: string;
+  price?: string;
+  note?: string;
 }
 
 const programs: Program[] = [
   {
     id: "ebook",
     icon: BookOpen,
-    name: "The Codex",
+    name: "The Reset",
     nameTh: "E-book",
     duration: "Self-paced",
     pitch:
-      "หนังสือเล่มเดียวที่รวมหลักทุกอย่างที่ผมสอน — สำหรับคนที่อยากเริ่มเดินทางเอง ก่อนพร้อมจ้างโค้ช",
+      "ข้อมูลทุกอย่างที่คุณต้องการเพื่อเปลี่ยนแปลงตัวเองได้จริง — ต่างกับมีโค้ชแค่ไม่มีใครคอยตอบ คอยบอก",
     highlights: [
-      "สร้างรากฐานระบบชีวิต — ไม่ใช่แค่แรงฮึดชั่วคราว",
-      "Mindset + วินัย: ทำได้แม้วันที่ไม่อยากทำ",
-      "Energy Balance, TDEE, สัดส่วนโปรตีน-คาร์บ-ไขมัน ครบ",
-      "โปรแกรม Push/Pull/Legs + Progressive Overload พร้อมใช้เลย",
-      "Zone 2 Cardio + หลักพักฟื้น — เผาไขมันและฟื้นตัวถูกวิธี",
+      "รู้ว่าทำไมคุณเริ่มแล้วหยุดซ้ำๆ — และวิธีหยุดวงจรนั้น",
+      "กินอาหารที่ชอบได้ ถ้าเข้าใจหลักการนี้",
+      "Mindset ที่เปลี่ยนพฤติกรรมจริง ไม่ใช่แค่แรงฮึดชั่วคราว",
+      "โปรแกรมเทรนพร้อมใช้เลย",
+      "วัดผลถูกวิธี — รู้ว่าตัวเองกำลังไปถูกทิศ",
     ],
-    cta: "ซื้อ E-book",
+    cta: "ซื้อ The Reset",
     ctaHref: "#apply",
+    price: "390",
+    note: "ข้อมูลใน ebook เล่มนี้เพียงพอสำหรับการเปลี่ยนแปลงตัวเอง — ต่างกันตรงที่ไม่มีโค้ชมาคอยบอก คอยตอบคำถาม",
   },
   {
     id: "3mo",
     icon: Sparkles,
-    name: "The Awakening",
+    name: "1:1 Coaching",
     nameTh: "3 เดือน",
     duration: "12 weeks · 1:1",
     pitch:
-      "เส้นทางที่กระชับ — ผมพาคุณผ่านทั้ง 4 phase ของวิธีในเวลาที่หนาแน่น เหมาะกับคนที่พร้อมจริง ๆ และรับการเปลี่ยนแปลงเร็วได้",
+      "มีโค้ชอยู่ข้างๆ ตลอด 12 สัปดาห์ — คอยบอก คอยตอบ และปรับแผนให้เข้ากับชีวิตคุณ",
     highlights: [
-      "1:1 coaching ตลอด 12 สัปดาห์",
-      "เทรนตัวต่อตัว 2–3 ครั้ง/สัปดาห์",
-      "โปรแกรมโภชนาการเฉพาะตัว",
+      "1:1 Call ทุกสัปดาห์ — วิเคราะห์เป้าหมายและสร้างแผนเฉพาะตัว",
+      "Customized Workout Program — โปรแกรมเทรนเฉพาะบุคคล",
+      "Daily Support ตลอดโปรแกรม",
       "Mindset work รายสัปดาห์",
-      "E-book The Codex ฟรี",
+      "E-book The Reset ฟรี",
     ],
     cta: "เริ่มเส้นทาง 3 เดือน",
     ctaHref: "#apply",
@@ -65,20 +76,19 @@ const programs: Program[] = [
   {
     id: "6mo",
     icon: Crown,
-    name: "The Pilgrimage",
+    name: "1:1 Coaching",
     nameTh: "6 เดือน",
     duration: "24 weeks · 1:1",
     pitch:
-      "การเดินทางที่ลึกที่สุด — เวลาที่พอจะเปลี่ยนทุกอย่างจริง ๆ ไม่ใช่แค่หุ่น แต่ทั้งวิถีชีวิต และเตรียมตัวคุณให้ยืนได้เองอย่างมั่นคง",
+      "เดินทางลึกกว่า ยาวกว่า — 24 สัปดาห์เพื่อเปลี่ยนทั้งหุ่นและวิถีชีวิต พร้อมยืนได้เองอย่างมั่นคง",
     highlights: [
-      "ทุกอย่างใน 3 เดือน × 2 รอบ",
-      "Mastery phase ที่ลึกขึ้น",
-      "1:1 quarterly retreat day",
-      "Personal playbook + roadmap 12 เดือน",
-      "Open-door check-in ตลอด 1 ปีหลังจบ",
-      "E-book The Codex ฟรี",
+      "1:1 Call ทุกสัปดาห์ — วิเคราะห์เป้าหมายและสร้างแผนเฉพาะตัว",
+      "Customized Workout Program — โปรแกรมเทรนเฉพาะบุคคล",
+      "Daily Support ตลอดโปรแกรม",
+      "Mindset work รายสัปดาห์",
+      "E-book The Reset ฟรี",
     ],
-    cta: "สมัคร The Pilgrimage",
+    cta: "เริ่มเส้นทาง 6 เดือน",
     ctaHref: "#apply",
     featured: true,
     ebookIncluded: true,
@@ -86,7 +96,13 @@ const programs: Program[] = [
   },
 ];
 
+const LINE_QR = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&color=1a1a1a&bgcolor=f9f6ee&data=https://lin.ee/Pjkes0uM";
+const LINE_URL = "https://lin.ee/Pjkes0uM";
+
 export function Programs() {
+  const [ebookModalOpen, setEbookModalOpen] = useState(false);
+  const [coachingModal, setCoachingModal] = useState<"3mo" | "6mo" | null>(null);
+
   return (
     <section
       id="programs"
@@ -99,7 +115,7 @@ export function Programs() {
 
       <div className="container-luxe relative">
         <SectionHeading
-          index="✦  04"
+          index="✦  03"
           eyebrow="Programs · 3 ทาง สู่จุดเดียวกัน"
           title={
             <>
@@ -155,23 +171,40 @@ export function Programs() {
                       {p.nameTh}
                     </p>
                   </div>
-                  <span
-                    className={[
-                      "inline-flex h-12 w-12 items-center justify-center rounded-full",
-                      featured
-                        ? "bg-gradient-gold text-obsidian-deep"
-                        : "border border-gold/30 text-gold",
-                    ].join(" ")}
-                  >
-                    <p.icon className="h-5 w-5" />
-                  </span>
+                  <div className="flex flex-col items-end gap-2">
+                    <span
+                      className={[
+                        "inline-flex h-12 w-12 items-center justify-center rounded-full",
+                        featured
+                          ? "bg-gradient-gold text-obsidian-deep"
+                          : "border border-gold/30 text-gold",
+                      ].join(" ")}
+                    >
+                      <p.icon className="h-5 w-5" />
+                    </span>
+                    {p.price && (
+                      <span className="gold-text text-2xl font-black tracking-tight leading-none">
+                        {p.price}{" "}
+                        <span className="text-sm font-bold">บาท</span>
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <div className="hairline" />
 
-                <p className="text-foreground/75 text-sm leading-relaxed text-pretty">
-                  {p.pitch}
-                </p>
+                <div className="h-[3.75rem] overflow-hidden">
+                  {p.note && (
+                    <p className="text-[13px] text-foreground/50 italic leading-relaxed">
+                      {p.note}
+                    </p>
+                  )}
+                  {p.id !== "ebook" && (
+                    <p className="text-[13px] text-foreground/50 italic leading-relaxed text-pretty">
+                      {p.pitch}
+                    </p>
+                  )}
+                </div>
 
                 <ul className="flex flex-col gap-3 mt-1">
                   {p.highlights.map((h) => (
@@ -200,26 +233,130 @@ export function Programs() {
                 </ul>
 
                 <div className="mt-auto flex flex-col gap-3 pt-2">
-                  <Button asChild size="lg" variant={featured ? "gold" : "outline"}>
-                    <Link href={p.ctaHref}>{p.cta}</Link>
-                  </Button>
-                  <p className="text-[11px] text-foreground/45 text-center">
-                    {p.id === "ebook"
-                      ? "ราคาเดี่ยว — ดาวน์โหลดได้ทันทีหลังชำระเงิน"
-                      : "คุยกับผมก่อน เพื่อยืนยันความพร้อม — ไม่มีการกดดัน"}
-                  </p>
+                  {p.id === "ebook" ? (
+                    <>
+                      <Button size="lg" variant="outline" onClick={() => setEbookModalOpen(true)}>
+                        {p.cta}
+                      </Button>
+                      <p className="text-[11px] text-foreground/45 text-center">
+                        จ่ายครั้งเดียว — ไม่มีค่าใช้จ่ายรายเดือน
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <Button
+                        size="lg"
+                        variant={featured ? "gold" : "outline"}
+                        onClick={() => setCoachingModal(p.id as "3mo" | "6mo")}
+                      >
+                        {p.cta}
+                      </Button>
+                      <p className="text-[11px] text-foreground/45 text-center">
+                        คุยกับผมก่อน เพื่อยืนยันความพร้อม — ไม่มีการกดดัน
+                      </p>
+                    </>
+                  )}
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        <p className="mt-12 mx-auto max-w-2xl text-center text-sm text-foreground/55 leading-relaxed">
-          ราคาที่แท้จริงไม่ได้บอกบนเว็บ — เพราะการเดินทางแบบนี้
-          ตัดสินใจจากตัวเลขเริ่มต้นไม่ได้ ผมคุยตรง ๆ ในรอบ discovery call
-          และจะบอกตามจริงว่าเหมาะหรือไม่เหมาะกับคุณ
-        </p>
+        <div className="mt-12 mx-auto max-w-xl text-center flex flex-col items-center gap-3">
+          <p className="text-base text-foreground/80 leading-relaxed">
+            ไม่แน่ใจว่าพร้อมหรือยัง?{" "}
+            <span className="text-gold">นั่นแหละคือจุดที่ทุกคนเริ่ม</span>
+          </p>
+          <p className="text-sm text-foreground/50 leading-relaxed">
+            คุยกับผมสักครั้ง — ไม่มีค่าใช้จ่าย ไม่มีการกดดัน
+            แค่บทสนทนาตรงๆ ว่าคุณอยู่ตรงไหน และเส้นทางไหนเหมาะกับคุณจริงๆ
+          </p>
+        </div>
       </div>
+
+      {/* Coaching contact modal */}
+      <Dialog open={!!coachingModal} onOpenChange={(o) => !o && setCoachingModal(null)}>
+        <DialogContent className="max-w-sm text-center">
+          <DialogTitle className="gold-text text-2xl">
+            1:1 Coaching · {coachingModal === "3mo" ? "3 เดือน" : "6 เดือน"}
+          </DialogTitle>
+          <DialogDescription className="text-foreground/60 text-sm leading-relaxed">
+            สแกน QR Code เพื่อพูดคุยและเริ่มต้นเส้นทางผ่าน Line ได้เลย
+          </DialogDescription>
+
+          <div className="flex flex-col items-center gap-5 pt-2">
+            <div className="rounded-2xl border border-gold/20 bg-white p-3 shadow-md">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={LINE_QR}
+                alt="Line QR Code สำหรับ 1:1 Coaching"
+                width={200}
+                height={200}
+                className="rounded-xl"
+              />
+            </div>
+
+            <div className="flex flex-col items-center gap-1">
+              <p className="text-xs text-foreground/45">หรือกดลิงก์ด้านล่าง</p>
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gold-text text-sm font-medium underline underline-offset-4 hover:opacity-75 transition-opacity"
+              >
+                lin.ee/Pjkes0uM
+              </a>
+            </div>
+
+            <div className="hairline w-full" />
+
+            <p className="text-xs text-foreground/45 leading-relaxed">
+              ไม่มีค่าใช้จ่ายในการพูดคุย — ผมจะบอกตรงๆ ว่าเหมาะหรือยัง
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Ebook purchase modal */}
+      <Dialog open={ebookModalOpen} onOpenChange={setEbookModalOpen}>
+        <DialogContent className="max-w-sm text-center">
+          <DialogTitle className="gold-text text-2xl">The Reset</DialogTitle>
+          <DialogDescription className="text-foreground/60 text-sm leading-relaxed">
+            สแกน QR Code เพื่อพูดคุยและสั่งซื้อผ่าน Line ได้เลย
+          </DialogDescription>
+
+          <div className="flex flex-col items-center gap-5 pt-2">
+            <div className="rounded-2xl border border-gold/20 bg-white p-3 shadow-md">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={LINE_QR}
+                alt="Line QR Code สำหรับสั่งซื้อ The Reset"
+                width={200}
+                height={200}
+                className="rounded-xl"
+              />
+            </div>
+
+            <div className="flex flex-col items-center gap-1">
+              <p className="text-xs text-foreground/45">หรือกดลิงก์ด้านล่าง</p>
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gold-text text-sm font-medium underline underline-offset-4 hover:opacity-75 transition-opacity"
+              >
+                lin.ee/Pjkes0uM
+              </a>
+            </div>
+
+            <div className="hairline w-full" />
+
+            <p className="text-xs text-foreground/45 leading-relaxed">
+              ราคา <span className="gold-text font-bold">390 บาท</span> — ชำระผ่าน Line
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

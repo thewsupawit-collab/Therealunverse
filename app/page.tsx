@@ -3,7 +3,6 @@ import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { PromiseSection } from "@/components/sections/promise";
 
-import { Method } from "@/components/sections/method";
 import { CoachStory } from "@/components/sections/coach";
 import { Who } from "@/components/sections/who";
 import { Programs } from "@/components/sections/programs";
@@ -43,7 +42,6 @@ export default function Home() {
         <CoachStory />
         <Programs />
         <Who />
-        <Method />
       </main>
       <Footer />
     </>
