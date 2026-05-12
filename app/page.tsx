@@ -23,7 +23,7 @@ const jsonLd = {
   areaServed: ["Thailand", "Online worldwide"],
   sameAs: [
     siteConfig.social.instagram,
-    siteConfig.social.tiktok,
+    siteConfig.social.facebook,
     siteConfig.social.youtube,
   ],
 };
