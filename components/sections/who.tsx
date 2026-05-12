@@ -1,10 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/shared/section-heading";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+const LINE_QR = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&color=1a1a1a&bgcolor=f9f6ee&data=https://lin.ee/Pjkes0uM";
+const LINE_URL = "https://lin.ee/Pjkes0uM";
 
 const fitFor = [
   "พร้อมลงทุนกับตัวเองจริงๆ ทั้งเวลาและความสม่ำเสมอ",
@@ -23,22 +34,22 @@ const notFor = [
 ];
 
 export function Who() {
+  const [lineModalOpen, setLineModalOpen] = useState(false);
+
   return (
     <section id="who" className="relative scroll-mt-nav py-14 md:py-20">
       <div className="container-luxe">
         <SectionHeading
           index="✦  04"
-          eyebrow="Honest filter · ใครที่ใช่ ใครที่ยังไม่ใช่"
+          eyebrow="Selective · ผมไม่ได้รับทุกคน"
           title={
             <>
-              ที่นี่ไม่ใช่
+              ผมไม่ใช่
               <br />
-              <span className="italic gold-text">gym ที่รับ</span>
-              <br />
-              ทุกคน
+              <span className="italic gold-text">สำหรับทุกคน</span>
             </>
           }
-          description="ผมต้องการคนธรรมดา — ที่พร้อมจริงจังกับการเปลี่ยนแปลงร่างกายตัวเองอย่างแท้จริง ไม่ใช่แค่อยากลอง"
+          description="ผมรับแค่คนที่สติดี รู้ว่าตัวเองต้องการอะไร และพร้อมจะลงมือจริงๆ"
         />
 
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-px bg-gold/15 border border-gold/20 rounded-2xl overflow-hidden">
@@ -121,11 +132,60 @@ export function Who() {
           </motion.div>
         </div>
 
-        <p className="mt-10 text-sm text-foreground/55 max-w-xl">
-          ไม่แน่ใจว่าตัวเองอยู่ฝั่งไหน? คุยกับผมก่อนได้เลย —
-          ไม่มีค่าใช้จ่าย และผมจะบอกตรงๆ ว่าเหมาะหรือยัง
-        </p>
+        <div className="mt-10 flex flex-col gap-4 max-w-xl">
+          <p className="text-sm text-foreground/55 leading-relaxed">
+            ทุกคนอยากเปลี่ยน — แต่ไม่ใช่ทุกคนพร้อมจะเปลี่ยน.{" "}
+            <span className="text-foreground/75">
+              ผมไม่ได้มองหาคนสมบูรณ์แบบ แต่มองหาคนที่ซื่อสัตย์กับตัวเอง
+              รู้ว่าตอนนี้ตัวเองอยู่ตรงไหน และไม่กลัวที่จะเดินหน้า
+            </span>
+          </p>
+          <Button variant="outline" size="lg" className="w-fit" onClick={() => setLineModalOpen(true)}>
+            LINE
+          </Button>
+        </div>
       </div>
+
+      {/* LINE modal */}
+      <Dialog open={lineModalOpen} onOpenChange={setLineModalOpen}>
+        <DialogContent className="max-w-sm text-center">
+          <DialogTitle className="gold-text text-2xl">ติดต่อผมผ่าน Line</DialogTitle>
+          <DialogDescription className="text-foreground/60 text-sm leading-relaxed">
+            สแกน QR Code หรือกดลิงก์ด้านล่างเพื่อพูดคุยกับผมได้เลย
+          </DialogDescription>
+
+          <div className="flex flex-col items-center gap-5 pt-2">
+            <div className="rounded-2xl border border-gold/20 bg-white p-3 shadow-md">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={LINE_QR}
+                alt="Line QR Code"
+                width={200}
+                height={200}
+                className="rounded-xl"
+              />
+            </div>
+
+            <div className="flex flex-col items-center gap-1">
+              <p className="text-xs text-foreground/45">หรือกดลิงก์ด้านล่าง</p>
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gold-text text-sm font-medium underline underline-offset-4 hover:opacity-75 transition-opacity"
+              >
+                lin.ee/Pjkes0uM
+              </a>
+            </div>
+
+            <div className="hairline w-full" />
+
+            <p className="text-xs text-foreground/45 leading-relaxed">
+              ไม่มีค่าใช้จ่ายในการพูดคุย — ผมจะบอกตรงๆ ว่าเหมาะหรือยัง
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

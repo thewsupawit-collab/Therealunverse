@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, Youtube, ArrowUpRight } from "lucide-react";
+import { Instagram, Youtube, Facebook, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 
 const columns = [
@@ -9,7 +9,6 @@ const columns = [
     title: "Path",
     links: [
       { label: "เส้นทาง", href: "#promise" },
-      { label: "วิธีการ", href: "#method" },
       { label: "โปรแกรม", href: "#programs" },
       { label: "เรื่องของผม", href: "#coach" },
     ],
@@ -18,7 +17,7 @@ const columns = [
     title: "Connect",
     links: [
       { label: "Instagram", href: siteConfig.social.instagram },
-      { label: "TikTok", href: siteConfig.social.tiktok },
+      { label: "Facebook", href: siteConfig.social.facebook },
       { label: "YouTube", href: siteConfig.social.youtube },
       { label: "LINE", href: siteConfig.social.line },
     ],
@@ -69,6 +68,15 @@ export function Footer() {
                 <Instagram className="h-4 w-4" />
               </a>
               <a
+                href={siteConfig.social.facebook}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/20 hover:border-gold/60 hover:bg-gold/10 transition"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a
                 href={siteConfig.social.youtube}
                 target="_blank"
                 rel="noreferrer"
@@ -76,15 +84,6 @@ export function Footer() {
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/20 hover:border-gold/60 hover:bg-gold/10 transition"
               >
                 <Youtube className="h-4 w-4" />
-              </a>
-              <a
-                href={siteConfig.social.tiktok}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="TikTok"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/20 hover:border-gold/60 hover:bg-gold/10 transition text-xs font-bold"
-              >
-                Tk
               </a>
               <a
                 href={siteConfig.social.line}

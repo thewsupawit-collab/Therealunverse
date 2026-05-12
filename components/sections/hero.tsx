@@ -3,15 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight, Users, CalendarDays, Infinity, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const stats = [
-  { k: "1:1", v: "ทุกเคส ตัวต่อตัวเท่านั้น" },
-  { k: "3–6", v: "เดือนของการเดินทางที่แท้จริง" },
-  { k: "∞", v: "ความรู้ที่ใช้ได้ตลอดชีวิต" },
+  { icon: Users, k: "1:1", v: "ทุกเคส ตัวต่อตัวเท่านั้น" },
+  { icon: CalendarDays, k: "3–6 เดือน", v: "การเดินทางที่แท้จริง" },
+  { icon: Infinity, k: "ตลอดชีวิต", v: "ความรู้ที่ใช้ได้ไม่มีวันหมด" },
+  { icon: Brain, k: "Mindset", v: "รากฐานของทุกการเปลี่ยนแปลง" },
 ];
 
 export function Hero() {
@@ -117,18 +118,23 @@ export function Hero() {
         className="relative border-t border-gold/20 bg-background/50 backdrop-blur"
       >
         <div className="container-luxe">
-          <div className="grid grid-cols-3 divide-x divide-gold/15">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gold/15">
             {stats.map((s) => (
               <div
                 key={s.v}
-                className="px-4 sm:px-6 md:px-10 py-7 flex flex-col gap-2 first:pl-0 last:pr-0"
+                className="px-5 md:px-8 py-6 flex flex-col items-center gap-3 text-center"
               >
-                <span className="font-display text-3xl md:text-5xl gold-text leading-none">
-                  {s.k}
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gold/30 text-gold">
+                  <s.icon className="h-5 w-5" />
                 </span>
-                <span className="text-xs md:text-sm text-foreground/55 leading-snug">
-                  {s.v}
-                </span>
+                <div className="flex flex-col gap-1">
+                  <span className="font-display text-base md:text-lg gold-text leading-tight font-semibold">
+                    {s.k}
+                  </span>
+                  <span className="text-[11px] md:text-xs text-foreground/50 leading-snug">
+                    {s.v}
+                  </span>
+                </div>
               </div>
             ))}
           </div>

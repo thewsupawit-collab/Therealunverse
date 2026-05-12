@@ -14,15 +14,15 @@ export const siteConfig = {
     role: "Founder & Coach",
   },
   social: {
-    instagram: "https://instagram.com/therealuniverse",
-    tiktok: "https://tiktok.com/@therealuniverse",
-    youtube: "https://youtube.com/@therealuniverse",
+    instagram: "https://www.instagram.com/thew.spw/",
+    facebook: "https://www.facebook.com/profile.php?id=61588987701227",
+    youtube: "https://www.youtube.com/@thewes1or",
     line: "https://line.me/ti/p/~therealuniverse",
   },
   nav: [
     { label: "Path", labelTh: "เส้นทาง", href: "#promise" },
-    { label: "Programs", labelTh: "โปรแกรม", href: "#programs" },
     { label: "My Story", labelTh: "เรื่องของผม", href: "#coach" },
+    { label: "Programs", labelTh: "โปรแกรม", href: "#programs" },
   ],
 } as const;
 

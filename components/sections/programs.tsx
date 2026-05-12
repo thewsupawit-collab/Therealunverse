@@ -30,6 +30,7 @@ interface Program {
   ebookIncluded?: boolean;
   ribbon?: string;
   price?: string;
+  savings?: string;
   note?: string;
 }
 
@@ -72,6 +73,7 @@ const programs: Program[] = [
     cta: "เริ่มเส้นทาง 3 เดือน",
     ctaHref: "#apply",
     ebookIncluded: true,
+    price: "15,900",
   },
   {
     id: "6mo",
@@ -93,6 +95,7 @@ const programs: Program[] = [
     featured: true,
     ebookIncluded: true,
     ribbon: "Most chosen",
+    price: "29,300",
   },
 ];
 
@@ -159,7 +162,7 @@ export function Programs() {
                   </span>
                 )}
 
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-4">
                   <div className="flex flex-col gap-1">
                     <span className="text-[10px] uppercase tracking-widest text-gold/75">
                       {p.duration}
@@ -167,11 +170,10 @@ export function Programs() {
                     <h3 className="font-display text-3xl md:text-4xl tracking-tight italic gold-text leading-tight">
                       {p.name}
                     </h3>
-                    <p className="text-sm text-foreground/55 mt-1">
-                      {p.nameTh}
-                    </p>
+                    <p className="text-sm text-foreground/55 mt-1">{p.nameTh}</p>
                   </div>
-                  <div className="flex flex-col items-end gap-2">
+
+                  <div className="flex flex-col items-end shrink-0 gap-3">
                     <span
                       className={[
                         "inline-flex h-12 w-12 items-center justify-center rounded-full",
@@ -183,10 +185,15 @@ export function Programs() {
                       <p.icon className="h-5 w-5" />
                     </span>
                     {p.price && (
-                      <span className="gold-text text-2xl font-black tracking-tight leading-none">
-                        {p.price}{" "}
-                        <span className="text-sm font-bold">บาท</span>
-                      </span>
+                      <div className="flex flex-col items-end gap-0.5">
+                        <span className="text-[10px] uppercase tracking-widest text-foreground/35">
+                          ราคา
+                        </span>
+                        <span className="gold-text text-xl font-black tracking-tight leading-none">
+                          ฿{p.price}
+                        </span>
+                        <span className="text-[10px] text-foreground/40">บาท</span>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -233,6 +240,7 @@ export function Programs() {
                 </ul>
 
                 <div className="mt-auto flex flex-col gap-3 pt-2">
+                  {/* Price row — shown for all cards that have a price */}
                   {p.id === "ebook" ? (
                     <>
                       <Button size="lg" variant="outline" onClick={() => setEbookModalOpen(true)}>
